@@ -3,12 +3,18 @@
   "private": true,
   "version": "0.1.0",
   "description": "Base64 helpers uesd by Archivematica",
-  "repository": "https://github.com/artefactual-labs/base64-helpers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artefactual-labs/base64-helpers.git"
+  },
   "license": "AGPL-3.0",
-  "devDependencies": {
+  "devDependencies": {},
+  "scripts": {},
+  "dependencies": {},
+  "bugs": {
+    "url": "https://github.com/artefactual-labs/base64-helpers/issues"
   },
-  "scripts": {
-  },
-  "dependencies": {
-  }
+  "homepage": "https://github.com/artefactual-labs/base64-helpers#readme",
+  "main": "base64-helpers.js",
+  "author": ""
 }
