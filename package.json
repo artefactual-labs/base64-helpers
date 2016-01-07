@@ -1,0 +1,14 @@
+{
+  "name": "base64-helpers",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Base64 helpers uesd by Archivematica",
+  "repository": "https://github.com/artefactual-labs/base64-helpers",
+  "license": "AGPL-3.0",
+  "devDependencies": {
+  },
+  "scripts": {
+  },
+  "dependencies": {
+  }
+}
