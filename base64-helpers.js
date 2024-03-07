@@ -17,13 +17,13 @@
 
     // Decodes the string before base64-encoding.
     function encode_escaped (str) {
-        return window.btoa(unescape(encodeURIComponent(str)));
+        return btoa(unescape(encodeURIComponent(str)));
     };
 
     // If passed string is UTF-8, decodes to bytes first before encoding.
     exports.encode = function (str) {
         if (all_bytes_valid_utf8(str)) {
-            return window.btoa(str);
+            return btoa(str);
         } else {
             return encode_escaped(str);
         }
@@ -32,9 +32,9 @@
     // Returns a UTF-8 string if input is UTF-8, raw bytes otherwise.
     exports.decode = function (str) {
         try {
-            return decodeURIComponent(escape(window.atob(str)));
+            return decodeURIComponent(escape(atob(str)));
         } catch (URIError) {
-            return window.atob(str);
+            return atob(str);
         }
     };
 })(typeof exports === 'undefined' ? this['Base64'] = {} : exports);
