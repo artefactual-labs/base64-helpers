@@ -1,40 +1,18 @@
 (function(exports) {
-    // Returns true if the passed string consists of codepoints between 0 and 255
-    // which are valid within UTF-8.
-    function all_bytes_valid_utf8 (str) {
-        var invalid_chars = [0xc0, 0xc1, 0xF5, 0xF6, 0xF7, 0xF8, 0xF9,
-                             0xF0, 0xFA, 0xFB, 0xFC, 0xFD, 0xFE, 0xFF];
-
-        for (var i in str) {
-            var cp = str.codePointAt(i);
-            if (cp > 255 || invalid_chars.indexOf(cp) !== -1) {
-                return false
-            }
-        }
-
-        return true;
+    function base64ToBytes(base64) {
+        const binString = atob(base64);
+        return Uint8Array.from(binString, (m) => m.codePointAt(0));
     };
-
-    // Decodes the string before base64-encoding.
-    function encode_escaped (str) {
-        return window.btoa(unescape(encodeURIComponent(str)));
+    function bytesToBase64(bytes) {
+        const binString = Array.from(bytes, (byte) =>
+            String.fromCodePoint(byte),
+        ).join("");
+        return btoa(binString);
     };
-
-    // If passed string is UTF-8, decodes to bytes first before encoding.
     exports.encode = function (str) {
-        if (all_bytes_valid_utf8(str)) {
-            return window.btoa(str);
-        } else {
-            return encode_escaped(str);
-        }
+        return bytesToBase64(new TextEncoder().encode(str));
     };
-
-    // Returns a UTF-8 string if input is UTF-8, raw bytes otherwise.
     exports.decode = function (str) {
-        try {
-            return decodeURIComponent(escape(window.atob(str)));
-        } catch (URIError) {
-            return window.atob(str);
-        }
+        return new TextDecoder().decode(base64ToBytes(str));
     };
 })(typeof exports === 'undefined' ? this['Base64'] = {} : exports);
