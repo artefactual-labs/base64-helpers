@@ -9,7 +9,7 @@
   },
   "license": "AGPL-3.0",
   "devDependencies": {
-    "vitest": "^3.0.7"
+    "vitest": "^3.0.9"
   },
   "scripts": {
     "test": "vitest"
