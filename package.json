@@ -1,8 +1,8 @@
 {
   "name": "base64-helpers",
   "private": true,
-  "version": "0.1.3",
-  "description": "Base64 helpers uesd by Archivematica",
+  "version": "0.1.4",
+  "description": "Base64 helpers used by Archivematica",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/artefactual-labs/base64-helpers.git"
@@ -19,5 +19,6 @@
   },
   "homepage": "https://github.com/artefactual-labs/base64-helpers#readme",
   "main": "base64-helpers.js",
+  "types": "base64-helpers.d.ts",
   "author": ""
 }
