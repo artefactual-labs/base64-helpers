@@ -12,6 +12,7 @@
     "vitest": "^4.1.3"
   },
   "scripts": {
+    "deps": "npx npm-check-updates --interactive",
     "test": "vitest"
   },
   "bugs": {
